@@ -1708,6 +1708,16 @@
         "build": {
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "MorpionApp/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/MorpionApp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MorpionApp.dll": {}
+        }
       }
     }
   },
@@ -5497,11 +5507,17 @@
         "xunit.runner.visualstudio.2.5.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "MorpionApp/1.0.0": {
+      "type": "project",
+      "path": "../PuissanceQuatre/MorpionApp.csproj",
+      "msbuildProject": "../PuissanceQuatre/MorpionApp.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.NET.Test.Sdk >= 17.8.0",
+      "MorpionApp >= 1.0.0",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.5.3",
       "xunit.runner.visualstudio >= 2.5.3"
@@ -5513,11 +5529,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wboya\\OneDrive\\Bureau\\Web\\TestUnitaire\\TestUnitaire.csproj",
+      "projectUniqueName": "C:\\Users\\wboya\\OneDrive\\Bureau\\TestEtValidation\\TestsEtValidations\\TestsEtValidations\\TestUnitaire\\TestUnitaire.csproj",
       "projectName": "TestUnitaire",
-      "projectPath": "C:\\Users\\wboya\\OneDrive\\Bureau\\Web\\TestUnitaire\\TestUnitaire.csproj",
+      "projectPath": "C:\\Users\\wboya\\OneDrive\\Bureau\\TestEtValidation\\TestsEtValidations\\TestsEtValidations\\TestUnitaire\\TestUnitaire.csproj",
       "packagesPath": "C:\\Users\\wboya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wboya\\OneDrive\\Bureau\\Web\\TestUnitaire\\obj\\",
+      "outputPath": "C:\\Users\\wboya\\OneDrive\\Bureau\\TestEtValidation\\TestsEtValidations\\TestsEtValidations\\TestUnitaire\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\wboya\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5533,7 +5549,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\wboya\\OneDrive\\Bureau\\TestEtValidation\\TestsEtValidations\\TestsEtValidations\\PuissanceQuatre\\MorpionApp.csproj": {
+              "projectPath": "C:\\Users\\wboya\\OneDrive\\Bureau\\TestEtValidation\\TestsEtValidations\\TestsEtValidations\\PuissanceQuatre\\MorpionApp.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

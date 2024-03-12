@@ -1,0 +1,15 @@
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\obj\Debug\net8.0\MorpionApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\obj\Debug\net8.0\MorpionApp.AssemblyInfoInputs.cache
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\obj\Debug\net8.0\MorpionApp.AssemblyInfo.cs
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\obj\Debug\net8.0\MorpionApp.csproj.CoreCompileInputs.cache
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\obj\Debug\net8.0\MorpionApp.sourcelink.json
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\bin\Debug\net8.0\MorpionApp.exe
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\bin\Debug\net8.0\MorpionApp.deps.json
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\bin\Debug\net8.0\MorpionApp.runtimeconfig.json
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\bin\Debug\net8.0\MorpionApp.dll
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\bin\Debug\net8.0\MorpionApp.pdb
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\obj\Debug\net8.0\MorpionApp.dll
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\obj\Debug\net8.0\refint\MorpionApp.dll
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\obj\Debug\net8.0\MorpionApp.pdb
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\obj\Debug\net8.0\MorpionApp.genruntimeconfig.cache
+C:\Users\wboya\OneDrive\Bureau\TestEtValidation\TestsEtValidations\TestsEtValidations\PuissanceQuatre\obj\Debug\net8.0\ref\MorpionApp.dll
