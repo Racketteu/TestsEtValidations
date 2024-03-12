@@ -10,47 +10,45 @@ namespace MorpionApp
     {
         public bool quiterJeu = false;
         public bool tourDuJoueur = true;
-        public char[,] grille;
+        public Grille grille;
+        private Joueur _joueur1;
+        private Joueur _joueur2;
 
         public Morpion()
         {
-            grille = new char[3, 3];
+            grille = new Grille(3, 3);
+            _joueur1 = new Joueur('X',"Joueur 1");
+            _joueur2 = new Joueur('O',"Joueur 2");
         }
 
         public void BoucleJeu()
         {
             while (!quiterJeu)
             {
-                grille = new char[3, 3]
-                {
-                    { ' ', ' ', ' '},
-                    { ' ', ' ', ' '},
-                    { ' ', ' ', ' '},
-                };
                 while (!quiterJeu)
                 {
                     if (tourDuJoueur)
                     {
-                        tourJoueur();
-                        if (verifVictoire('X'))
+                        tourJoueur(_joueur1.GetPion());
+                        if (verifVictoire(_joueur1.GetPion()))
                         {
-                            finPartie("Le joueur 1 à gagné !");
+                            finPartie(_joueur1.GetName() + " à gagné !");
                             break;
                         }
                     }
                     else
                     {
-                        tourJoueur2();
-                        if (verifVictoire('O'))
+                        tourJoueur(_joueur2.GetPion());
+                        if (verifVictoire(_joueur2.GetPion()))
                         {
-                            finPartie("Le joueur 2 à gagné !");
+                            finPartie(_joueur2.GetName() + " à gagné !");
                             break;
                         }
                     }
                     tourDuJoueur = !tourDuJoueur;
                     if (verifEgalite())
                     {
-                        finPartie("Aucun vainqueur, la partie se termine sur une égalité.");
+                        finPartie("Aucun vainqueur, égalité.");
                         break;
                     }
                 }
@@ -74,7 +72,7 @@ namespace MorpionApp
             }
         }
 
-        public void tourJoueur()
+        public void tourJoueur(char pionUser)
         {
             var (row, column) = (0, 0);
             bool moved = false;
@@ -82,7 +80,7 @@ namespace MorpionApp
             while (!quiterJeu && !moved)
             {
                 Console.Clear();
-                affichePlateau();
+                grille.AfficherGrille();
                 Console.WriteLine();
                 Console.WriteLine("Choisir une case valide est appuyer sur [Entrer]");
                 Console.SetCursorPosition(column * 6 + 1, row * 4 + 1);
@@ -138,9 +136,9 @@ namespace MorpionApp
                         }
                         break;
                     case ConsoleKey.Enter:
-                        if (grille[row, column] is ' ')
+                        if (grille._grille[row, column] == ' ')
                         {
-                            grille[row, column] = 'X';
+                            grille._grille[row, column] = pionUser;
                             moved = true;
                             quiterJeu = false;
                         }
@@ -150,115 +148,47 @@ namespace MorpionApp
             }
         }
 
-        public void tourJoueur2()
+        public bool verifVictoire(char c)
         {
-            var (row, column) = (0, 0);
-            bool moved = false;
-
-            while (!quiterJeu && !moved)
+            // Vérification des lignes et des colonnes
+            for (int i = 0; i < 3; i++)
             {
-                Console.Clear();
-                affichePlateau();
-                Console.WriteLine();
-                Console.WriteLine("Choisir une case valide est appuyer sur [Entrer]");
-                Console.SetCursorPosition(column * 6 + 1, row * 4 + 1);
-
-                switch (Console.ReadKey(true).Key)
+                if ((grille._grille[i, 0] == c && grille._grille[i, 1] == c && grille._grille[i, 2] == c) ||
+                    (grille._grille[0, i] == c && grille._grille[1, i] == c && grille._grille[2, i] == c))
                 {
-                    case ConsoleKey.Escape:
-                        quiterJeu = true;
-                        Console.Clear();
-                        break;
-
-                    case ConsoleKey.RightArrow:
-                        if (column >= 2)
-                        {
-                            column = 0;
-                        }
-                        else
-                        {
-                            column = column + 1;
-                        }
-                        break;
-
-                    case ConsoleKey.LeftArrow:
-                        if (column <= 0)
-                        {
-                            column = 2;
-                        }
-                        else
-                        {
-                            column = column - 1;
-                        }
-                        break;
-
-                    case ConsoleKey.UpArrow:
-                        if (row <= 0)
-                        {
-                            row = 2;
-                        }
-                        else
-                        {
-                            row = row - 1;
-                        }
-                        break;
-
-                    case ConsoleKey.DownArrow:
-                        if (row >= 2)
-                        {
-                            row = 0;
-                        }
-                        else
-                        {
-                            row = row + 1;
-                        }
-                        break;
-                    case ConsoleKey.Enter:
-                        if (grille[row, column] is ' ')
-                        {
-                            grille[row, column] = 'O';
-                            moved = true;
-                            quiterJeu = false;
-                        }
-                        break;
+                    return true;
                 }
             }
+
+            // Vérification des diagonales
+            if ((grille._grille[0, 0] == c && grille._grille[1, 1] == c && grille._grille[2, 2] == c) ||
+                (grille._grille[2, 0] == c && grille._grille[1, 1] == c && grille._grille[0, 2] == c))
+            {
+                return true;
+            }
+
+            return false;
         }
 
-        public void affichePlateau()
+        public bool verifEgalite()
         {
-            Console.WriteLine();
-            Console.WriteLine($" {grille[0, 0]}  |  {grille[0, 1]}  |  {grille[0, 2]}");
-            Console.WriteLine("    |     |");
-            Console.WriteLine("----+-----+----");
-            Console.WriteLine("    |     |");
-            Console.WriteLine($" {grille[1, 0]}  |  {grille[1, 1]}  |  {grille[1, 2]}");
-            Console.WriteLine("    |     |");
-            Console.WriteLine("----+-----+----");
-            Console.WriteLine("    |     |");
-            Console.WriteLine($" {grille[2, 0]}  |  {grille[1, 1]}  |  {grille[0, 2]}");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (grille._grille[i, j] == ' ')
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
-
-        public bool verifVictoire(char c) =>
-             grille[0, 0] == c && grille[1, 0] == c && grille[2, 0] == c ||
-             grille[0, 1] == c && grille[1, 1] == c && grille[2, 1] == c ||
-             grille[0, 2] == c && grille[1, 2] == c && grille[2, 2] == c ||
-             grille[0, 0] == c && grille[1, 1] == c && grille[2, 2] == c ||
-             grille[1, 0] == c && grille[1, 1] == c && grille[1, 2] == c ||
-             grille[2, 0] == c && grille[2, 1] == c && grille[2, 2] == c ||
-             grille[0, 0] == c && grille[1, 1] == c && grille[2, 2] == c ||
-             grille[2, 0] == c && grille[1, 1] == c && grille[0, 2] == c;
-
-        public bool verifEgalite() =>
-            grille[0, 0] != ' ' && grille[1, 0] != ' ' && grille[2, 0] != ' ' &&
-            grille[0, 1] != ' ' && grille[1, 1] != ' ' && grille[2, 1] != ' ' &&
-            grille[0, 2] != ' ' && grille[1, 2] != ' ' && grille[2, 2] != ' ';
-
 
         public void finPartie(string msg)
         {
             Console.Clear();
-            affichePlateau();
+            grille.AfficherGrille();
             Console.WriteLine(msg);
         }
     }
